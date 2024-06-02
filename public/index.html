@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jackies Memory Game</title>
+	<link rel="stylesheet" href="styles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">    
+	<link rel="icon" type="image/svg+xml" href="images/browser-icon.svg">
+	<script src="https://kit.fontawesome.com/5f85e07cf7.js" crossorigin="anonymous"></script>
+	<script src='fastclick.js'></script>
+	<script src="howler.min.js"></script>
+	<script src="leaderboards.js" type="module"></script>
+	<script src="main.js" type="module"></script>
+</head>
+<body>
+	<div id="wrapper">
+	<table id="leaderboard">
+		<tbody>
+			<tr id="close-btn-tr">
+				<td id="close-btn-td"><div id="close-btn"><i class="fa-solid fa-xmark"></i></div></td>
+			</tr>
+		</tbody>
+		<tr class="row">
+		  <th>Rank</th>
+		  <th>Name</th>
+		  <th>Time</th>
+		  <th>Score</th>
+		</tr>
+	  </table>
+	</div>
+
+		<div id="menu">
+			<audio id="menuSound">
+				<source src="sounds/menu.mp3" type="audio/mpeg">
+			</audio>
+			<img id="logo" src="images/memory.png" alt="Jackies-memory-logo">
+			<ul>
+			<li>
+				<div id="muted" class="toggleSound" alt="volume"><i class="fa-solid fa-volume-xmark"></i></div>
+				<img id="start" src="images/Start.png" alt="start-button"></li>
+			<li><img id="leaderboard-btn" src="images/Leaderboard.png" alt="Leader-button"></li>
+
+			</ul>
+		</div>
+
+		<div id="game-container">
+			<div id="highscore">
+				<form id="myForm">
+					<h1>Congratulations!!</h1>
+					<h2>You reached TOP 10 in the game!!</h2>
+					<label for="textInput">Enter your name:</label>
+					<input type="text" id="textInput" name="name" maxlength="18">
+					<input id="submit-btn"type="submit" value="Submit">
+				  </form>
+			</div>
+			<div id="gameLogo">
+				<img id="logo" src="images/memory.png" alt="Jackies-memory-logo">
+			</div>
+			<div class="scoreBoard">
+				<ul>
+					<div id="btn-wrapper">
+					<div id="home-btn" alt="home"><i class="fa-solid fa-house-chimney"></i></div>
+					<div id="replay-game"><i class="fas fa-redo"></i></div>
+					<div id="muted" class="toggleSound" alt="volume"><i class="fa-solid fa-volume-xmark"></i></div>
+				</div>
+					<li id="time"></li>
+					<li id="score"></li>
+					<li id="multiplier"></li>
+				</ul>
+			</div>
+			<audio id="cardFlipSound" src="sounds/cardFlip.mp3"></audio>
+			<audio id="cardMatchSound" src="sounds/cardMatch.mp3"></audio>
+			<audio id="recordSound" src="sounds/recordSound.mp3"></audio>
+			<div class="cards"></div>
+		</div>
+			
+	<video autoplay muted loop playsinline id="bgVideo">
+		<source src="images/background.mp4" type="video/mp4">
+	</video>
+<script>
+	 // Initialize FastClick after DOM is fully loaded
+     document.addEventListener('DOMContentLoaded', function() {
+         if ('addEventListener' in document) {
+             FastClick.attach(document.body);
+         }
+     }, false);
+</script>
+</body>
+</html>
